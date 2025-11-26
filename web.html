@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新农人综合服务平台 - 政策、学习与互助</title>
+    <style>
+        /* --- 全局样式 --- */
+        :root {
+            --primary-green: #2ecc71;  /* 农业绿 */
+            --dark-green: #27ae60;
+            --accent-red: #e74c3c;     /* 红色教育 */
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f9fdf9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* --- 头部导航 --- */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--dark-green);
+        }
+
+        .nav-btn {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        /* --- Hero 区域 (首屏) --- */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        /* --- 核心板块 (Grid布局) --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-title h2 { font-size: 2rem; color: var(--text-dark); }
+        .section-title span { display: block; width: 50px; height: 4px; background: var(--accent-red); margin: 10px auto; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* 顶部颜色条，区分不同板块 */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 6px;
+        }
+        .card.c1::before { background: #3498db; } /* 蓝色 - 政策 */
+        .card.c2::before { background: var(--accent-red); } /* 红色 - 思想 */
+        .card.c3::before { background: #f1c40f; } /* 黄色 - 乡情 */
+        .card.c4::before { background: var(--primary-green); } /* 绿色 - 社群 */
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .card h3 { margin-bottom: 0.5rem; font-size: 1.4rem; }
+        .card p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem;}
+
+        .card-btn {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .card-btn:hover { background: var(--dark-green); color: white; border-color: var(--dark-green); }
+
+        /* --- 底部 --- */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        footer p { opacity: 0.7; font-size: 0.9rem; }
+
+        /* --- 手机适配 --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .features-grid { grid-template-columns: 1fr; } /* 手机上单列显示 */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🌾 新农人成长平台</div>
+        <a href="mailto:your-email@example.com" class="nav-btn">联系我们</a>
+    </header>
+
+    <section class="hero">
+        <h1>扎根乡村，筑梦田野</h1>
+        <p>掌握政策导向，传承红色精神，连接乡情纽带，共建互助社群。</p>
+    </section>
+
+    <div class="container">
+        <div class="section-title">
+            <h2>四大服务板块</h2>
+            <span></span>
+        </div>
+
+        <div class="features-grid">
+
+            <div class="card c1">
+                <div class="icon">🧭</div>
+                <h3>政策导航仪</h3>
+                <p><strong>政策推送与办理平台</strong><br>为您解读最新的惠农政策，提供申报指南，让好政策不再难懂。</p>
+                <a href="#" class="card-btn">查看政策</a>
+            </div>
+
+            <div class="card c2">
+                <div class="icon">🚩</div>
+                <h3>思想加油站</h3>
+                <p><strong>红色文旅与榜样故事</strong><br>学习新农人榜样力量，体验红色文化，为乡村振兴注入精神动力。</p>
+                <a href="#" class="card-btn">开始学习</a>
+            </div>
+
+            <div class="card c3">
+                <div class="icon">🤝</div>
+                <h3>乡情联结器</h3>
+                <p><strong>对接乡村需求做贡献</strong><br>连接家乡与游子，发布乡村实际需求，让每一份爱心都能精准落地。</p>
+                <a href="#" class="card-btn">对接需求</a>
+            </div>
+
+            <div class="card c4">
+                <div class="icon">👥</div>
+                <h3>社群学习平台</h3>
+                <p><strong>新农人互帮互助</strong><br>加入我们的大家庭，分享经验，解决技术难题，抱团取暖共同致富。</p>
+                <a href="#" class="card-btn">加入社群</a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 新农人成长平台 | 助力乡村振兴</p>
+    </footer>
+
+</body>
+</html>
